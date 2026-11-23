@@ -43,15 +43,15 @@ The fault menu injects a model timeout, a rate limit, or a 503 on the third tool
 
 ```mermaid
 flowchart LR
-  UI[Chat or voice UI] -->|SSE| Route[/api/chat]
-  Route --> Router[Router: model or keyword rules]
-  Router --> Identity[Identity policy]
-  Identity --> SM[Tool state machine]
-  SM --> Tools[Account, billing, escalation tools]
-  SM --> RAG[Hybrid policy search]
-  SM --> Draft[Grounded draft]
-  Draft --> Model[Model phrasing]
-  Model --> Check[Grounding check]
+  UI["Chat or voice UI"] -->|SSE| API["/api/chat"]
+  API --> Router["Model or keyword rules"]
+  Router --> Identity["Identity policy"]
+  Identity --> SM["Tool state machine"]
+  SM --> Tools["Account and policy tools"]
+  SM --> RAG["Hybrid policy search"]
+  SM --> Draft["Grounded draft"]
+  Draft --> Phrase["Model phrasing"]
+  Phrase --> Check["Grounding check"]
   Check -->|pass| UI
   Check -->|fail| Draft
 ```
