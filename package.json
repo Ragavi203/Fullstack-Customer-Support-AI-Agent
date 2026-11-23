@@ -1,0 +1,26 @@
+{
+  "name": "linden-care",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Linden Care — streaming support agent for a mobile carrier, with voice, RAG, and tool orchestration.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "eval": "tsx evals/run.mts",
+    "eval:live": "tsx evals/run.mts --live",
+    "test": "tsx --test lib/rag/chunker.test.ts lib/rag/embeddings.test.ts lib/agent/guardrails.test.ts lib/agent/planner.test.ts lib/tools/policy.test.ts lib/agent/orchestrator.test.ts"
+  },
+  "dependencies": {
+    "next": "^15.1.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}
